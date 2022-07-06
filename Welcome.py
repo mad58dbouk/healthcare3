@@ -511,9 +511,11 @@ div[data-testid="metric-container"] > label[data-testid="stMetricLabel"] > div {
 
 				Select = st.selectbox("Selection",["upload data","Data Exploration","Registered Users"])
 				if Select == "upload data":
-					
+					import pandas as pd
 					uploaded_data = st.file_uploader('Upload dataset', type='csv')
 					if uploaded_data:
+						import pandas as pd
+						import streamlit as st
 						df= pd.read_csv(uploaded_data)
 						st.markdown("<h1 style='text-align: center; color: red;'>Introduction</h1>", unsafe_allow_html=True)
 						st.write("""Stroke is one of the leading causes of death worldwide. It can lead to long term disabilities if not a short-termm death. Therefore, managing Stroke's leading risk factors and trying to predict a stroke before happening is paramount.This web application will aims to provide a closer look at stroke in general, identify risk factors correlations and insights sing various data sources and help in the prediction of a potential stroke in favor of preventing it.""")
